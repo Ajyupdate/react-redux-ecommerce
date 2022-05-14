@@ -5,7 +5,7 @@ import Modal from 'react-modal'
 import  Zoom  from 'react-reveal/Zoom';
 import {connect} from "react-redux";
 import {fetchProducts} from "./actions/ProductActions"
-
+//import {addToCart } from "./actions/CartActions"
 
 class Products extends Component {
   constructor(props){
@@ -58,8 +58,8 @@ class Products extends Component {
             
            </Fade>  
            {product && (
-             <Modal isOpen={true} onRequestClose={this.closeModal}>
-             <Zoom>
+             <Modal  isOpen={true} onRequestClose={this.closeModal}>
+             <Zoom >
                <button className='close-modal' onClick={this.closeModal}>
                  X
                </button>
@@ -100,6 +100,8 @@ class Products extends Component {
     )
   }
 }
-export default connect((state) => ({products: state.products.filteredItems}),{
+export default connect(
+  (state) => ({products: state.products.filteredItems}),{
   fetchProducts,
+  //addToCart
 })(Products);
